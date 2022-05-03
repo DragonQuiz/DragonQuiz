@@ -1,20 +1,17 @@
-import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Link, Outlet } from 'react-router-dom';
 import React from 'react';
-import Login from './containers/Login.jsx';
-import RegistrationContain from './containers/RegistrationContain.jsx';
+import Login from './components/Login.jsx';
+import Homepage from './containers/Homepage.jsx'
 
 function App() {
   return(
     <div className='app'>
-      <BrowserRouter>
-        <div>hello world</div>
-        <Login />
-        <RegistrationContain />
-      </BrowserRouter>
-      
-      {/* <Routes>
-         <Route path="/login" component= {Login} /> 
-      </Routes> */}
+      <div>
+        <div>Dragon Quiz</div>
+      </div>
+        <Link to="/login">Login</Link> | { " " }
+        <Link to="/registration">Registration</Link>
+        <Outlet />
     </div>
   )
 }

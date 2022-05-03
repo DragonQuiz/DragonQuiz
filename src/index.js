@@ -1,11 +1,10 @@
 import React from 'react'
 import { render } from 'react-dom';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import App from "./App.jsx";
+import Main from "./Main.jsx";
 
 const root = document.getElementById("root");
 
 render(
-  <App />,
+  <Main />,
   root
 );
