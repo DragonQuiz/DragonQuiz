@@ -11,21 +11,21 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors());
 
 
-app.post('/login', dbController.login, (req, res) => {
-  res.status(200).json(res.locals.result)
+app.post('/login', dbController.findUser, dbController.checkPassword, (req, res) => {
+  return res.status(200).json(res.locals.result)
 })
 
 app.post('/createUser', dbController.createUser, (req, res) => {
-  res.status(200).json(res.locals.data);
+  return res.status(200).json(res.locals.data);
 })
 
-// app.get('/*', function(req, res) {
-//   res.sendFile(path.join(__dirname, '../src/index.html'), function(err) {
-//     if (err) {
-//       res.status(500).send(err)
-//     }
-//   })
-// })
+app.post('/createQuestion', dbController.createQuestion, (req, res) => {
+  return res.status(200).json(res.locals.data);
+})
+
+app.get('/getAllQuestions', dbController.getAllQuestions, (req, res) => {
+  return res.status(200).json(res.locals.data);
+})
 
 app.get('/', (req, res) => {
   return res.send('server received get request');
@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
 app.use(express.static(path.resolve(__dirname, '../src')))
 
 app.use((req, res) => {
-  res.sendStatus(404);
+  return res.sendStatus(404);
 })
 
 //global error handler
