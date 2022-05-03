@@ -1,15 +1,11 @@
-// import { createRoot } from 'react-dom/client';
-// import App from "./App.js";
+import React from 'react'
+import { render } from 'react-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import App from "./App.jsx";
 
-// const container = document.getElementById('app');
-// const root = createRoot(container);
-// root.render(<App />);
+const root = document.getElementById("root");
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from "./App.js";
-
-ReactDOM.render(
-    <App />,
-  document.getElementById('root')
+render(
+  <App />,
+  root
 );
