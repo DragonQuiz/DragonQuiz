@@ -1,11 +1,23 @@
 import React, { useState } from 'react';
 
 function Login() {
-  const [ userName, setUserName ] = useState();
+  const [ username, setUsername ] = useState();
   const [ password, setPassword] = useState();
 
   const handleSubmit = e => {
-
+    e.preventDefault();
+    fetch('/login', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username,
+        password
+      })
+    })
+    .then(response => response.json())
+    //if we get valid response, redirect using conditional state 'validUser'
   }
 
   return(
@@ -13,7 +25,7 @@ function Login() {
       <form onSubmit = {handleSubmit}>
         <label>
           <p>Username</p>
-          <input type='text' onChange = {e => setUserName(e.target.value)} />
+          <input type='text' onChange = {e => setUsername(e.target.value)} />
         </label>
         <label>
           <p>Password</p>
