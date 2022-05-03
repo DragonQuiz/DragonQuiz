@@ -6,12 +6,12 @@ import {
     Route,
 } from "react-router-dom";
 import App from "./App.jsx";
-import Registration from "./components/Registration.jsx";
 import Login from './components/Login.jsx';
-import ListQ from './components/ListQ.jsx';
+import ListQ from './containers/ListQ.jsx';
 import SubmitQ from './components/SubmitQ.jsx';
 import Flashcards from './containers/Flashcards.jsx';
-import Homepage from './containers/Homepage.jsx';
+import Homepage from './components/Homepage.jsx';
+import Registration from './containers/Registration.jsx';
 
 //const rootElement = document.getElementById("root");
 function Main() {

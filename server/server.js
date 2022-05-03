@@ -19,6 +19,13 @@ app.post('/createUser', dbController.createUser, (req, res) => {
   res.status(200).json(res.locals.data);
 })
 
+// app.get('/*', function(req, res) {
+//   res.sendFile(path.join(__dirname, '../src/index.html'), function(err) {
+//     if (err) {
+//       res.status(500).send(err)
+//     }
+//   })
+// })
 
 app.get('/', (req, res) => {
   return res.send('server received get request');
