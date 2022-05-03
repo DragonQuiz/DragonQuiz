@@ -1,6 +1,6 @@
 import React from 'react';
-import SubmitQ from '../components/SubmitQ.jsx'
-import ListQ from '../components/ListQ.jsx';
+import SubmitQ from './SubmitQ.jsx'
+import ListQ from '../containers/ListQ.jsx';
 import { Link } from 'react-router-dom'
 
 function Homepage() {

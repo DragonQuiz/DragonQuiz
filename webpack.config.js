@@ -34,4 +34,17 @@ module.exports = {
       template: path.join(__dirname, "src", "index.html"),
     }),
   ],
+  devServer: {
+    host: 'localhost',
+    port: 8080,
+    historyApiFallback: true,
+    proxy: {
+      '/api/**': 'http://localhost:3000',
+      secure: false,
+    },
+    static: {
+      directory: path.join(__dirname, '/src')
+    },
+    hot: true
+  }
 }

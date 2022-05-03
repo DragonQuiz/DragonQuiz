@@ -1,5 +1,5 @@
 import React, {useState } from 'react';
-
+import Homepage from '../components/Homepage.jsx'
 function Registration() {
 
   const [username, setUserName] = useState('');
@@ -9,6 +9,7 @@ function Registration() {
   const [password, setPassword] = useState('');
   const [cohort, setCohort] = useState('');
   const [cohort_number, setCohortNumber] = useState(0);
+  const [ verified, setVerified] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -26,9 +27,17 @@ function Registration() {
       headers: {'Content-Type': 'application/json'}
     })
     .then(response => response.json())
-  }
+    .then(response => {
+      if(response.locals.rows[0] === 'valid')
+      setVerified(true)
+    }) //check with backend on this value
+  }  
 
   return(
+    //if true, render homepage
+    (verified) ? 
+      <Homepage />
+    :
     <div className ='register'>
       <form onSubmit = {handleSubmit}>
         <label>
