@@ -49,42 +49,59 @@ function Registration() {
       <Homepage username={username} />
     :
     <div className ='register'>
+      <div className='container'>
+      <h2>Sign up</h2>
       <form onSubmit = {handleSubmit}>
-        <label>
-          <p>First Name</p>
+        <div>
+          <label>
+          <span>First Name</span>
+          </label>
           <input type='text' onChange = {e => setFirstName(e.target.value)} />
-        </label>
+        </div>
+      <div>
         <label>
-          <p>Last Name</p>
-          <input type='text' onChange = {e => setLastName(e.target.value)} />
+        <span>Last Name</span>
         </label>
+        <input type='text' onChange = {e => setLastName(e.target.value)} />
+      </div>
+      <div>
         <label>
-          <p>Email</p>
-          <input type='text' onChange = {e => setEmail(e.target.value)} />
+          <span>Email</span>
         </label>
-
-        <label>Cohort:</label>
+        <input type='text' onChange = {e => setEmail(e.target.value)} />
+      </div>
+      <div className='cohort'>
+      <label>Cohort:</label>
           <select value = {cohort} onChange = {e => setCohort(e.target.value)} >
             <option value=''>--Select A Cohort--</option>
             <option value='LA'>LA</option>
             <option value='NY'>NY</option>
             <option value='PTRI'>PTRI</option>
           </select>
-
-        <label>Cohort Number:
+      </div>
+      <div>
+        <label>
+          <span>Cohort Number</span>
+        </label>  
         <input type='text' onChange = {e => setCohortNumber(Number(e.target.value))} />
-        </label>
-
+      </div>
+      <div>
         <label>
-          <p>Username</p>
+          <span>Username</span>
+        </label>
           <input type='text' onChange = {e => setUserName(e.target.value)} />
-        </label>
+      </div>
+      <div>
         <label>
-          <p>Password</p>
-          <input type='password' onChange = {e => setPassword(e.target.value)} />
+          <span>Password</span>
         </label>
-          <input type='submit' />
+          <input type='password' onChange = {e => setPassword(e.target.value)} />
+      </div>
+      <div className='registerButton'>
+        <input className='submit' type='submit' value ='submit' />
+      </div>
       </form>
+      </div>
     </div>    
   )
 

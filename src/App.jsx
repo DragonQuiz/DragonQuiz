@@ -7,12 +7,18 @@ import SumbitQ from './components/SubmitQ.jsx';
 function App() {
   return(
     <div className='app'>
-      <div>
-        <div>Dragon Quiz</div>
+      <div className='nav'>
+        Dragon Quiz
       </div>
-        <Link to="/login">Login</Link> | { " " }
-        <Link to="/registration">Registration</Link>
-        <Outlet />
+      <div className='links'>
+        <div className='link'>
+        {/* <Link to="/login" >Login</Link> */}
+        <Login />
+        </div>
+    <div className='link' id='registration'>
+    <Link to="/registration">Create Account</Link>
+    </div>
+      </div>
     </div>
   )
 }

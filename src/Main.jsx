@@ -18,10 +18,10 @@ function Main() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={< App />} >
+        <Route path="/" element={< App />} />
             <Route path="/registration" element = {<Registration />} />
             <Route path="/login" element = {<Login />} />
-        </Route>
+        {/* </Route> */}
 
         <Route path='/homepage' element={<Homepage />} />
         <Route path='/listQ' element={<ListQ />} />

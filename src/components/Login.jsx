@@ -22,19 +22,17 @@ function Login() {
 
   return(
     <div className ='login'>
-      <form onSubmit = {handleSubmit}>
-        <label>
-          <p>Username</p>
-          <input type='text' onChange = {e => setUsername(e.target.value)} />
-        </label>
-        <label>
-          <p>Password</p>
-          <input type='password' onChange = {e => setPassword(e.target.value)} />
-        </label>
-        <div>
-          <button type='submit'>Login</button>
+      <div className='container'>
+        <h2>Welcome</h2>
+        <form onSubmit = {handleSubmit}>
+        <div className='inputDiv'>
+          <input type='text' className = 'username' placeholder = 'Username' onChange = {e => setUsername(e.target.value)} />
+          <input type='password' className = 'password' placeholder = 'Password' onChange = {e => setPassword(e.target.value)} />
         </div>
+          <input type='submit' className='submit' id='login' value='Sign In' />
       </form>
+      </div>
+
     </div>
   )
 }
