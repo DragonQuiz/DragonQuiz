@@ -4,6 +4,7 @@ import {
     BrowserRouter,
     Routes,
     Route,
+    Link,
 } from "react-router-dom";
 import App from "./App.jsx";
 import Login from './components/Login.jsx';
@@ -17,15 +18,15 @@ import Registration from './containers/Registration.jsx';
 function Main() {
   return (
     <BrowserRouter>
+      <Link to="/">Dragon Quiz</Link>
       <Routes>
-        <Route path="/" element={< App />} >
-            <Route path="/registration" element = {<Registration />} />
-            <Route path="/login" element = {<Login />} />
-        </Route>
+        <Route path="/" element={< App />} />
+        <Route path="/registration" element = {<Registration />} />
+        <Route path="/login" element = {<Login />} />
 
         <Route path='/homepage' element={<Homepage/>} />
         <Route path='/listQ' element={<ListQ/>} />
-        <Route path='/submitQ' element = {<SubmitQ/>} />
+        <Route path='/submitQ/:username' element = {<SubmitQ/>} />
         <Route path='/flashCards' element = {<Flashcards/>} />
       </Routes>
     </BrowserRouter>
