@@ -11,19 +11,19 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors());
 
 
-app.post('/login', dbController.findUser, dbController.checkPassword, (req, res) => {
+app.post('/api/login', dbController.findUser, dbController.checkPassword, (req, res) => {
   return res.status(200).json(res.locals.result)
 })
 
-app.post('/createUser', dbController.createUser, (req, res) => {
+app.post('/api/createUser', dbController.createUser, (req, res) => {
   return res.status(200).json(res.locals.data);
 })
 
-app.post('/createQuestion', dbController.createQuestion, (req, res) => {
+app.post('/api/createQuestion', dbController.createQuestion, (req, res) => {
   return res.status(200).json(res.locals.data);
 })
 
-app.get('/getAllQuestions', dbController.getAllQuestions, (req, res) => {
+app.get('/api/getAllQuestions', dbController.getAllQuestions, (req, res) => {
   return res.status(200).json(res.locals.data);
 })
 

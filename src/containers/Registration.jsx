@@ -13,7 +13,7 @@ function Registration() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    fetch('/createUser', {
+    fetch('/api/createUser', {
       method: 'POST',
       body: JSON.stringify( {
         username,
@@ -28,7 +28,7 @@ function Registration() {
     })
     .then(response => response.json())
     .then(response => {
-      if(response.locals.rows[0] === 'valid')
+      console.log(response)
       setVerified(true)
     }) //check with backend on this value
   }  
@@ -36,7 +36,7 @@ function Registration() {
   return(
     //if true, render homepage
     (verified) ? 
-      <Homepage />
+      <Homepage username={username}/>
     :
     <div className ='register'>
       <form onSubmit = {handleSubmit}>
@@ -54,7 +54,15 @@ function Registration() {
         </label>
         <label>
           <p>Cohort</p>
-          <input type='text' onChange = {e => setCohort(e.target.value)} />
+          <select name='cohort' onChange = {e => setCohort(e.target.value)} >
+            <option value='LA'>LA</option>
+            <option value='NY'>NY</option>
+            <option value='FTRI'>FTRI</option>
+          </select>
+        </label>
+        <label>
+          <p>Cohort Number</p>
+          <input type='text' onChange = {e => setCohortNumber(Number(e.target.value))} />
         </label>
         <label>
           <p>Username</p>
@@ -63,10 +71,9 @@ function Registration() {
         <label>
           <p>Password</p>
           <input type='password' onChange = {e => setPassword(e.target.value)} />
-        </label>
-        <div>
-          <button type='submit'>Submit</button>
-        </div>
+        </label><br></br>
+
+        <input type='submit' />
       </form>
     </div>    
   )
