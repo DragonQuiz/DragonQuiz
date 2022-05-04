@@ -19,7 +19,9 @@ import Answer from './components/Answer.jsx';
 function Main() {
   return (
     <BrowserRouter>
-      <Link to="/">Dragon Quiz</Link>
+      <div className="homeButton">
+        <Link to="/">Dragon Quiz</Link>
+      </div>
       <Routes>
         <Route exact path="/" element={< App />} />
         <Route path="/registration" element = {<Registration />} />

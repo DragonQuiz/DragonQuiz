@@ -66,6 +66,7 @@ dbController.checkPassword = (req, res, next) => {
 }
 
 dbController.createQuestion = (req, res, next) => {
+  console.log('req body',req.body)
   const { company_name, interview_round, job_type, question_type, question_name, question, answer, question_creator } = req.body;
   const queryString = {
     text: `INSERT INTO Questions (
@@ -138,6 +139,6 @@ module.exports = dbController;
 //   "question_type": "Data Structures",
 //   "question_name": "Circular Linked List",
 //   "question": "Given a circular linked list, implement an algorithm which returns the node at the beginning of a loop.",
-//   "answer": "do this first, then do this next, then do this last"
+//   "answer": "do this first, then do this next, then do this last",
 //   "question_creator": "kamartinng"
 // }
