@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Homepage from './Homepage.jsx'
+import { Link } from 'react-router-dom';
 
 function Login() {
   const [ username, setUsername ] = useState();
@@ -44,7 +45,9 @@ function Login() {
       </form>
       <div>{invalid}</div>
       </div>
-
+      <div className='link' id='registration'>
+        <Link id="createAccount" to="/registration" >Create Account</Link>
+      </div>
     </div>
   )
 }
