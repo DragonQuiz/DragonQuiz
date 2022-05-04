@@ -9,11 +9,19 @@ function Registration() {
   const [password, setPassword] = useState('');
   const [cohort, setCohort] = useState('');
   const [cohort_number, setCohortNumber] = useState(0);
-  const [ verified, setVerified] = useState(false);
+  
+  const [verified, setVerified] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
-    fetch('/createUser', {
+    console.log('username',username);
+    console.log('email', email);
+    console.log('first_name', first_name);
+    console.log('last_name', last_name);
+    console.log('password', password);
+    console.log('cohort number', cohort_number);
+    console.log('inside handleSubmit function');
+    fetch('/api/createUser', {
       method: 'POST',
       body: JSON.stringify( {
         username,
@@ -28,15 +36,17 @@ function Registration() {
     })
     .then(response => response.json())
     .then(response => {
-      if(response.locals.rows[0] === 'valid')
+      console.log(response)
+      //setUserName(response.username)
       setVerified(true)
+      console.log('verified user');
     }) //check with backend on this value
   }  
 
   return(
     //if true, render homepage
     (verified) ? 
-      <Homepage />
+      <Homepage username={username} />
     :
     <div className ='register'>
       <form onSubmit = {handleSubmit}>
@@ -52,10 +62,19 @@ function Registration() {
           <p>Email</p>
           <input type='text' onChange = {e => setEmail(e.target.value)} />
         </label>
-        <label>
-          <p>Cohort</p>
-          <input type='text' onChange = {e => setCohort(e.target.value)} />
+
+        <label>Cohort:</label>
+          <select value = {cohort} onChange = {e => setCohort(e.target.value)} >
+            <option value=''>--Select A Cohort--</option>
+            <option value='LA'>LA</option>
+            <option value='NY'>NY</option>
+            <option value='PTRI'>PTRI</option>
+          </select>
+
+        <label>Cohort Number:
+        <input type='text' onChange = {e => setCohortNumber(Number(e.target.value))} />
         </label>
+
         <label>
           <p>Username</p>
           <input type='text' onChange = {e => setUserName(e.target.value)} />
@@ -64,9 +83,7 @@ function Registration() {
           <p>Password</p>
           <input type='password' onChange = {e => setPassword(e.target.value)} />
         </label>
-        <div>
-          <button type='submit'>Submit</button>
-        </div>
+          <input type='submit' />
       </form>
     </div>    
   )

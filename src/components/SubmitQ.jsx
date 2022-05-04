@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useParams } from 'react';
 
-function SumbitQ() {
+function SumbitQ(props) {
 
   const [ company_name, setCompanyName ] = useState('');
   const [ interview_round, setInterviewRound ] = useState('');
@@ -11,11 +11,11 @@ function SumbitQ() {
   const [ question_name, setQuestionName ] = useState('');
   const [ question, setQuestion ] = useState('Enter your question here.');
   const [ answer, setAnswer ] = useState('Enter your answer here.');
-
+ 
   const handleSubmit = e => {
     e.preventDefault();
 
-    fetch('', {
+    fetch('/api/createQuestion', {
       method: 'POST',
       body: {
         company_name,
@@ -32,10 +32,13 @@ function SumbitQ() {
         "Content-Type": "application/json"
       }
     })
+    .then(response => { response.json()})
   }
 
+  console.log('username', props.username)
   return(
     <div className ='sumbitQuestion'>
+      <h2>{username}</h2>
       <h2>Submit Interview Question</h2>
       <form onSubmit = {handleSubmit}>
         <label>
@@ -90,10 +93,7 @@ function SumbitQ() {
         </label>  
         <textarea value ={answer} onChange = {e => setAnswer(e.target.value)} />
  
-
-          <div>
-            <button type='submit'>Submit</button>
-          </div>
+        <input type='submit' />
       </form>
     </div>
   )

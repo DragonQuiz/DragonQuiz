@@ -23,10 +23,10 @@ function Main() {
             <Route path="/login" element = {<Login />} />
         </Route>
 
-        <Route path='/homepage' element={<Homepage/>} />
-        <Route path='/listQ' element={<ListQ/>} />
-        <Route path='/submitQ' element = {<SubmitQ/>} />
-        <Route path='/flashCards' element = {<Flashcards/>} />
+        <Route path='/homepage' element={<Homepage />} />
+        <Route path='/listQ' element={<ListQ />} />
+        <Route path='/submitQ/' element = {<SubmitQ />} />
+        <Route path='/flashCards' element = {<Flashcards />} />
       </Routes>
     </BrowserRouter>
     
