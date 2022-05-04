@@ -4,7 +4,7 @@ import ListQ from '../containers/ListQ.jsx';
 import { Link } from 'react-router-dom'
 
 function Homepage(props) {
-  console.log('props', props)
+  console.log('username', props.username)
   return(
 
     <div className='homepage'>
@@ -16,9 +16,9 @@ function Homepage(props) {
         <Link to="/listQ"><button>List Questions</button> </Link>
       </div>
       <div>
-        <Link to="/submitQ" username = {props.username}><button>Submit Questions</button></Link>
-      </div>
-      </div>
+        <Link to={`/submitQ/${props.username}`}><button>Submit Questions</button></Link>
+     </div>
+    </div>
     </div>
   )
 }

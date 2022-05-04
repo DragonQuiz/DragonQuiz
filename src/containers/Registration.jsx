@@ -14,13 +14,6 @@ function Registration() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log('username',username);
-    console.log('email', email);
-    console.log('first_name', first_name);
-    console.log('last_name', last_name);
-    console.log('password', password);
-    console.log('cohort number', cohort_number);
-    console.log('inside handleSubmit function');
     fetch('/api/createUser', {
       method: 'POST',
       body: JSON.stringify( {
@@ -37,7 +30,6 @@ function Registration() {
     .then(response => response.json())
     .then(response => {
       console.log(response)
-      //setUserName(response.username)
       setVerified(true)
       console.log('verified user');
     }) //check with backend on this value
@@ -46,7 +38,7 @@ function Registration() {
   return(
     //if true, render homepage
     (verified) ? 
-      <Homepage username={username} />
+      <Homepage username={username}/>
     :
     <div className ='register'>
       <div className='container'>

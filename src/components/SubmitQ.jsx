@@ -1,6 +1,7 @@
-import React, { useState, useParams } from 'react';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom'
 
-function SumbitQ(props) {
+function SumbitQ() {
 
   const [ company_name, setCompanyName ] = useState('');
   const [ interview_round, setInterviewRound ] = useState('');
@@ -11,7 +12,10 @@ function SumbitQ(props) {
   const [ question_name, setQuestionName ] = useState('');
   const [ question, setQuestion ] = useState('Enter your question here.');
   const [ answer, setAnswer ] = useState('Enter your answer here.');
- 
+
+  const { username } = useParams();
+  console.log('submitQ username', username)
+
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -23,10 +27,10 @@ function SumbitQ(props) {
         job_description,
         job_type,
         question_type,
-        question_creator,
         question_name,
         question,
-        answer
+        answer,
+        question_creator: username
       },
       headers: {
         "Content-Type": "application/json"
@@ -38,8 +42,8 @@ function SumbitQ(props) {
   // console.log('username', props.username)
   return(
     <div className ='sumbitQuestion'>
-      {/* <h2>{username}</h2> */}
       <div className='container'>
+      <h1>{username}</h1>
       <h2>Submit Interview Question</h2>
       <form onSubmit = {handleSubmit}>
         <div>
