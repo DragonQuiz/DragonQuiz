@@ -19,7 +19,7 @@ function SumbitQ() {
   const handleSubmit = e => {
     e.preventDefault();
 
-    fetch('', {
+    fetch('/api/createQuestion', {
       method: 'POST',
       body: {
         company_name,
@@ -36,42 +36,53 @@ function SumbitQ() {
         "Content-Type": "application/json"
       }
     })
+    .then(response => { response.json()})
   }
 
+  // console.log('username', props.username)
   return(
     <div className ='sumbitQuestion'>
+      <div className='container'>
       <h1>{username}</h1>
       <h2>Submit Interview Question</h2>
       <form onSubmit = {handleSubmit}>
+        <div>
         <label>
-          <p>Company Name:</p>
-          <input type='text' onChange = {e => setCompanyName(e.target.value)} />
+          <span>Company Name</span>
         </label>
+        <input type='text' onChange = {e => setCompanyName(e.target.value)} />
+        </div>
+        <div>
         <label>
-          <p>Interview Round</p>
+          <span>Interview Round</span>
         </label>   
           <select value = {interview_round} onChange = {e => setInterviewRound(e.target.value)}>
             <option value = '1st Round'>1st Round</option>
             <option value = '2nd Round'>2nd Round</option>
             <option value = '3rd Round'>3rd Round</option>
             <option value = 'On Site'>On Site</option>
-          </select>  
+          </select> 
+        </div>
+        <div>
         <label>
-          <p>Job Description:</p>
+          <span>Job Description</span>
           <input type='text' onChange = {e => setJobDescription(e.target.value)} />        
         </label>
-
+        </div>
+        <div>
         <label>
-          <p>Job Type:</p>
+          <span>Job Type</span>
         </label>   
           <select value = {job_type} onChange = {e => setJobType(e.target.value)}>
             <option value = 'Frontend'>Frontend</option>
             <option value = 'Backend'>Backend</option>
             <option value = 'Fullstack'>Fullstack</option>
         </select>  
+        </div>
 
+        <div>
         <label>
-          <p>Question Type:</p>
+          <span>Question Type:</span>
         </label>
           <select value = {question_type} onChange = {e => setQuestionType(e.target.value)}>
             <option value = 'Algorithm'>Algorithm</option>
@@ -79,27 +90,29 @@ function SumbitQ() {
             <option value = 'System Design'>System Design</option>
             <option value = 'White Boarding'>White Boarding</option>
           </select>
-          
+        </div>
+        <div>
         <label>
-          <p>Question Name:</p>
+          <span>Question Name:</span>
           <input type='text' onChange = {e => {setQuestionName(e.target.value)}}/>
-        </label>
-        
+        </label>          
+        </div>   
+        <div>
         <label>
-          <p>Question:</p>
+          <span>Question:</span>
         </label>
         <textarea value = {question} onChange = {e => setQuestion(e.target.value)} />
-
+        </div>
+        <div>
         <label>
-          <p>Answer:</p>
+          <span>Answer:</span>
         </label>  
         <textarea value ={answer} onChange = {e => setAnswer(e.target.value)} />
- 
+        </div>
 
-          <div>
-            <button type='submit'>Submit</button>
-          </div>
+        <input type='submit' />
       </form>
+      </div>
     </div>
   )
 }
