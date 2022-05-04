@@ -13,6 +13,7 @@ import SubmitQ from './components/SubmitQ.jsx';
 import Flashcards from './containers/Flashcards.jsx';
 import Homepage from './components/Homepage.jsx';
 import Registration from './containers/Registration.jsx';
+import Answer from './components/Answer.jsx';
 
 //const rootElement = document.getElementById("root");
 function Main() {
@@ -20,14 +21,14 @@ function Main() {
     <BrowserRouter>
       <Link to="/">Dragon Quiz</Link>
       <Routes>
-        <Route path="/" element={< App />} />
+        <Route exact path="/" element={< App />} />
         <Route path="/registration" element = {<Registration />} />
         <Route path="/login" element = {<Login />} />
-
-        <Route path='/homepage' element={<Homepage/>} />
+        <Route exact path='/homepage' element={<Homepage/>} />
         <Route path='/listQ' element={<ListQ/>} />
         <Route path='/submitQ/:username' element = {<SubmitQ/>} />
         <Route path='/flashCards' element = {<Flashcards/>} />
+        <Route path='/answer' element = {<Answer/>} />
       </Routes>
     </BrowserRouter>
     

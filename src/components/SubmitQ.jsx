@@ -66,8 +66,8 @@ function SumbitQ() {
         <div>
         <label>
           <span>Job Description</span>
-          <input type='text' onChange = {e => setJobDescription(e.target.value)} />        
         </label>
+          <input type='text' onChange = {e => setJobDescription(e.target.value)} />        
         </div>
         <div>
         <label>
@@ -82,7 +82,7 @@ function SumbitQ() {
 
         <div>
         <label>
-          <span>Question Type:</span>
+          <span>Question Type</span>
         </label>
           <select value = {question_type} onChange = {e => setQuestionType(e.target.value)}>
             <option value = 'Algorithm'>Algorithm</option>
@@ -93,19 +93,19 @@ function SumbitQ() {
         </div>
         <div>
         <label>
-          <span>Question Name:</span>
-          <input type='text' onChange = {e => {setQuestionName(e.target.value)}}/>
-        </label>          
+          <span>Question Name</span>
+        </label>   
+          <input type='text' onChange = {e => {setQuestionName(e.target.value)}}/>       
         </div>   
         <div>
         <label>
-          <span>Question:</span>
+          <span>Question</span>
         </label>
         <textarea value = {question} onChange = {e => setQuestion(e.target.value)} />
         </div>
         <div>
         <label>
-          <span>Answer:</span>
+          <span>Answer</span>
         </label>  
         <textarea value ={answer} onChange = {e => setAnswer(e.target.value)} />
         </div>
