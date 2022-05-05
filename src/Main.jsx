@@ -14,13 +14,14 @@ import Flashcards from './containers/Flashcards.jsx';
 import Homepage from './components/Homepage.jsx';
 import Registration from './containers/Registration.jsx';
 import Answer from './components/Answer.jsx';
+import dragonite from './assets/dragonite.png'
 
 //const rootElement = document.getElementById("root");
 function Main() {
   return (
     <BrowserRouter>
       <div className="homeButton">
-        <Link to="/">Dragon Quiz</Link>
+        <Link to="/"><img src={dragonite} height="80"></img></Link>
       </div>
       <Routes>
         <Route exact path="/" element={< App />} />
